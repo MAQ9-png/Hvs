@@ -1,0 +1,7 @@
+services:
+  meitha:
+    build: .
+    container_name: meitha-discord-bot
+    restart: unless-stopped
+    env_file:
+      - .env
