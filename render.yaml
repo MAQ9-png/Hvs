@@ -1,0 +1,20 @@
+services:
+  - type: worker
+    name: meitha-discord-bot
+    runtime: docker
+    plan: starter
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: MAX_HISTORY_MESSAGES
+        value: "12"
+      - key: LOG_LEVEL
+        value: INFO
